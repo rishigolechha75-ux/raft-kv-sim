@@ -143,8 +143,8 @@ flowchart TB
 
 Python 3.9+ standard library only at runtime (asyncio, json, heapq).
 pytest for tests and matplotlib for charts. Docker and docker compose for a
-containerised 3-node cluster. GitHub Actions CI tests on Python 3.9, 3.11 and
-3.12, runs a 100-seed simulation campaign and builds and smoke-tests the
+containerised 3-node cluster. GitHub Actions CI tests on Python 3.10, 3.11 and
+3.12 (3.9 is tested locally; the hosted runner image no longer ships it), runs a 100-seed simulation campaign and builds and smoke-tests the
 Docker image.
 
 ## Setup and usage
