@@ -79,6 +79,7 @@ class RaftServer:
         self._dirty = False
         self._server: Optional[asyncio.base_events.Server] = None
         self._tasks: list = []
+        self._conns: set = set()
 
     # -------------------------------------------------------------- lifecycle
     async def start(self) -> None:
@@ -98,6 +99,10 @@ class RaftServer:
             t.cancel()
         if self._server is not None:
             self._server.close()
+            # Since Python 3.12, wait_closed() also waits for accepted
+            # connections, so close them explicitly first.
+            for w in list(self._conns):
+                w.close()
             await self._server.wait_closed()
         for w in self.peer_writers.values():
             if w is not None:
@@ -113,6 +118,7 @@ class RaftServer:
 
     # ------------------------------------------------------------- networking
     async def _handle_conn(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter) -> None:
+        self._conns.add(writer)
         try:
             while True:
                 line = await reader.readline()
@@ -133,6 +139,7 @@ class RaftServer:
         except (ConnectionError, asyncio.IncompleteReadError):
             pass
         finally:
+            self._conns.discard(writer)
             writer.close()
 
     @staticmethod
