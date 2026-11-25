@@ -1,0 +1,19 @@
+# Three-node cluster. Each node binds 0.0.0.0:7000 inside its own container
+# and reaches its peers by service name.
+x-node: &node
+  build: .
+  image: raftkv:local
+
+services:
+  n0:
+    <<: *node
+    command: ["serve", "--id", "n0", "--cluster", "n0=0.0.0.0:7000,n1=n1:7000,n2=n2:7000", "--data-dir", "/data"]
+    ports: ["7000:7000"]
+  n1:
+    <<: *node
+    command: ["serve", "--id", "n1", "--cluster", "n0=n0:7000,n1=0.0.0.0:7000,n2=n2:7000", "--data-dir", "/data"]
+    ports: ["7001:7000"]
+  n2:
+    <<: *node
+    command: ["serve", "--id", "n2", "--cluster", "n0=n0:7000,n1=n1:7000,n2=0.0.0.0:7000", "--data-dir", "/data"]
+    ports: ["7002:7000"]
