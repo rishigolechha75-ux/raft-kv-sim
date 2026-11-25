@@ -1,0 +1,228 @@
+{
+  "description": "Correct implementation, default RaftConfig (PreVote on, max_batch 64).",
+  "seeds_per_cell": 300,
+  "ticks_per_run": 2600,
+  "fault_ticks": 2000,
+  "clients": 4,
+  "keys": 3,
+  "results": {
+    "chaos": {
+      "3_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 68035,
+        "ops_completed": 68035,
+        "ops_per_1k_ticks": 87.22,
+        "latency_ticks_p50": 22.0,
+        "latency_ticks_p99": 231.0,
+        "mean_leaders_elected": 8.45,
+        "messages_per_completed_op": 26.89
+      },
+      "5_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 67602,
+        "ops_completed": 67602,
+        "ops_per_1k_ticks": 86.67,
+        "latency_ticks_p50": 23.0,
+        "latency_ticks_p99": 230.0,
+        "mean_leaders_elected": 8.82,
+        "messages_per_completed_op": 56.69
+      }
+    },
+    "clean": {
+      "3_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 312101,
+        "ops_completed": 312101,
+        "ops_per_1k_ticks": 400.13,
+        "latency_ticks_p50": 7.0,
+        "latency_ticks_p99": 11.0,
+        "mean_leaders_elected": 1.0,
+        "messages_per_completed_op": 11.52
+      },
+      "5_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 302957,
+        "ops_completed": 302957,
+        "ops_per_1k_ticks": 388.41,
+        "latency_ticks_p50": 8.0,
+        "latency_ticks_p99": 11.0,
+        "mean_leaders_elected": 1.0,
+        "messages_per_completed_op": 21.27
+      }
+    },
+    "crashes": {
+      "3_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 228390,
+        "ops_completed": 228390,
+        "ops_per_1k_ticks": 292.81,
+        "latency_ticks_p50": 9.0,
+        "latency_ticks_p99": 56.0,
+        "mean_leaders_elected": 4.61,
+        "messages_per_completed_op": 12.13
+      },
+      "5_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 220604,
+        "ops_completed": 220604,
+        "ops_per_1k_ticks": 282.83,
+        "latency_ticks_p50": 10.0,
+        "latency_ticks_p99": 57.0,
+        "mean_leaders_elected": 4.72,
+        "messages_per_completed_op": 23.2
+      }
+    },
+    "elections": {
+      "3_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 92500,
+        "ops_completed": 92500,
+        "ops_per_1k_ticks": 118.59,
+        "latency_ticks_p50": 14.0,
+        "latency_ticks_p99": 177.0,
+        "mean_leaders_elected": 21.35,
+        "messages_per_completed_op": 22.23
+      },
+      "5_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 95651,
+        "ops_completed": 95651,
+        "ops_per_1k_ticks": 122.63,
+        "latency_ticks_p50": 14.0,
+        "latency_ticks_p99": 168.0,
+        "mean_leaders_elected": 19.7,
+        "messages_per_completed_op": 44.35
+      }
+    },
+    "lossy": {
+      "3_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 73924,
+        "ops_completed": 73924,
+        "ops_per_1k_ticks": 94.77,
+        "latency_ticks_p50": 25.0,
+        "latency_ticks_p99": 160.0,
+        "mean_leaders_elected": 1.02,
+        "messages_per_completed_op": 26.23
+      },
+      "5_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 70300,
+        "ops_completed": 70299,
+        "ops_per_1k_ticks": 90.13,
+        "latency_ticks_p50": 26.0,
+        "latency_ticks_p99": 168.0,
+        "mean_leaders_elected": 1.03,
+        "messages_per_completed_op": 51.59
+      }
+    },
+    "partitions": {
+      "3_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 206014,
+        "ops_completed": 206014,
+        "ops_per_1k_ticks": 264.12,
+        "latency_ticks_p50": 9.0,
+        "latency_ticks_p99": 91.0,
+        "mean_leaders_elected": 8.74,
+        "messages_per_completed_op": 13.94
+      },
+      "5_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 202959,
+        "ops_completed": 202959,
+        "ops_per_1k_ticks": 260.2,
+        "latency_ticks_p50": 10.0,
+        "latency_ticks_p99": 78.0,
+        "mean_leaders_elected": 8.63,
+        "messages_per_completed_op": 27.06
+      }
+    },
+    "pauses": {
+      "3_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 229707,
+        "ops_completed": 229707,
+        "ops_per_1k_ticks": 294.5,
+        "latency_ticks_p50": 9.0,
+        "latency_ticks_p99": 54.0,
+        "mean_leaders_elected": 5.03,
+        "messages_per_completed_op": 13.22
+      },
+      "5_nodes": {
+        "runs": 300,
+        "failing_runs": 0,
+        "safety_violations": 0,
+        "linearizability_failures": 0,
+        "linearizability_unknown": 0,
+        "ops_invoked": 232755,
+        "ops_completed": 232755,
+        "ops_per_1k_ticks": 298.4,
+        "latency_ticks_p50": 10.0,
+        "latency_ticks_p99": 51.0,
+        "mean_leaders_elected": 4.03,
+        "messages_per_completed_op": 24.36
+      }
+    }
+  },
+  "env": {
+    "python": "3.11.16",
+    "machine": "arm64",
+    "system": "Darwin"
+  },
+  "total_runs": 4200,
+  "total_failing_runs": 0,
+  "seconds": 25.7
+}

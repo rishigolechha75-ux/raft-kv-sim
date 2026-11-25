@@ -1,0 +1,215 @@
+{
+  "description": "Fraction of seeds in which a deliberately injected bug is detected by the safety monitor or the linearizability checker. 'none' is the correct implementation (false-positive check).",
+  "seeds": 500,
+  "configs": {
+    "default": "chaos profile, 5 nodes, PreVote on, max_batch 64",
+    "adversarial": "elections profile, 3 nodes, PreVote off, max_batch 1"
+  },
+  "results": {
+    "commit_old_term": {
+      "adversarial": {
+        "detected": 19,
+        "runs": 500,
+        "detection_rate": 0.038,
+        "ci95": [
+          0.0245,
+          0.0586
+        ],
+        "first_detecting_seed": 14,
+        "first_signal": {
+          "leader_completeness": 19
+        },
+        "linearizability_unknown": 0
+      },
+      "default": {
+        "detected": 0,
+        "runs": 500,
+        "detection_rate": 0.0,
+        "ci95": [
+          0.0,
+          0.0076
+        ],
+        "first_detecting_seed": null,
+        "first_signal": {},
+        "linearizability_unknown": 0
+      }
+    },
+    "no_dedup": {
+      "adversarial": {
+        "detected": 345,
+        "runs": 500,
+        "detection_rate": 0.69,
+        "ci95": [
+          0.6481,
+          0.729
+        ],
+        "first_detecting_seed": 0,
+        "first_signal": {
+          "linearizability": 345
+        },
+        "linearizability_unknown": 0
+      },
+      "default": {
+        "detected": 300,
+        "runs": 500,
+        "detection_rate": 0.6,
+        "ci95": [
+          0.5565,
+          0.642
+        ],
+        "first_detecting_seed": 1,
+        "first_signal": {
+          "linearizability": 300
+        },
+        "linearizability_unknown": 0
+      }
+    },
+    "no_vote_persist": {
+      "adversarial": {
+        "detected": 9,
+        "runs": 500,
+        "detection_rate": 0.018,
+        "ci95": [
+          0.0095,
+          0.0339
+        ],
+        "first_detecting_seed": 26,
+        "first_signal": {
+          "election_safety": 9
+        },
+        "linearizability_unknown": 0
+      },
+      "default": {
+        "detected": 0,
+        "runs": 500,
+        "detection_rate": 0.0,
+        "ci95": [
+          0.0,
+          0.0076
+        ],
+        "first_detecting_seed": null,
+        "first_signal": {},
+        "linearizability_unknown": 0
+      }
+    },
+    "none": {
+      "adversarial": {
+        "detected": 0,
+        "runs": 500,
+        "detection_rate": 0.0,
+        "ci95": [
+          0.0,
+          0.0076
+        ],
+        "first_detecting_seed": null,
+        "first_signal": {},
+        "linearizability_unknown": 0
+      },
+      "default": {
+        "detected": 0,
+        "runs": 500,
+        "detection_rate": 0.0,
+        "ci95": [
+          0.0,
+          0.0076
+        ],
+        "first_detecting_seed": null,
+        "first_signal": {},
+        "linearizability_unknown": 0
+      }
+    },
+    "skip_log_check": {
+      "adversarial": {
+        "detected": 500,
+        "runs": 500,
+        "detection_rate": 1.0,
+        "ci95": [
+          0.9924,
+          1.0
+        ],
+        "first_detecting_seed": 0,
+        "first_signal": {
+          "leader_completeness": 500
+        },
+        "linearizability_unknown": 0
+      },
+      "default": {
+        "detected": 267,
+        "runs": 500,
+        "detection_rate": 0.534,
+        "ci95": [
+          0.4902,
+          0.5773
+        ],
+        "first_detecting_seed": 8,
+        "first_signal": {
+          "leader_completeness": 258,
+          "state_machine_safety": 9
+        },
+        "linearizability_unknown": 0
+      }
+    },
+    "truncate_always": {
+      "adversarial": {
+        "detected": 500,
+        "runs": 500,
+        "detection_rate": 1.0,
+        "ci95": [
+          0.9924,
+          1.0
+        ],
+        "first_detecting_seed": 0,
+        "first_signal": {
+          "leader_completeness": 500
+        },
+        "linearizability_unknown": 0
+      },
+      "default": {
+        "detected": 379,
+        "runs": 500,
+        "detection_rate": 0.758,
+        "ci95": [
+          0.7186,
+          0.7935
+        ],
+        "first_detecting_seed": 3,
+        "first_signal": {
+          "leader_completeness": 376,
+          "state_machine_safety": 3
+        },
+        "linearizability_unknown": 0
+      }
+    },
+    "unbounded_follower_commit": {
+      "adversarial": {
+        "detected": 396,
+        "runs": 500,
+        "detection_rate": 0.792,
+        "ci95": [
+          0.7543,
+          0.8253
+        ],
+        "first_detecting_seed": 0,
+        "first_signal": {
+          "state_machine_safety": 396
+        },
+        "linearizability_unknown": 0
+      },
+      "default": {
+        "detected": 17,
+        "runs": 500,
+        "detection_rate": 0.034,
+        "ci95": [
+          0.0213,
+          0.0538
+        ],
+        "first_detecting_seed": 4,
+        "first_signal": {
+          "state_machine_safety": 17
+        },
+        "linearizability_unknown": 0
+      }
+    }
+  },
+  "seconds": 37.3
+}

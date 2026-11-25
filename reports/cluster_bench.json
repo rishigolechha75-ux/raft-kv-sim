@@ -1,0 +1,129 @@
+{
+  "env": {
+    "python": "3.11.16",
+    "machine": "arm64",
+    "system": "Darwin",
+    "cpus": 10
+  },
+  "fsync": true,
+  "tick_ms": 10,
+  "election_timeout_ms": [
+    150,
+    300
+  ],
+  "heartbeat_ms": 50,
+  "duration_s": 5.0,
+  "throughput": {
+    "1_nodes": {
+      "c1": {
+        "ops": 32516,
+        "errors": 0,
+        "ops_per_sec": 6503.0,
+        "latency_ms_p50": 0.15,
+        "latency_ms_p99": 0.185,
+        "latency_ms_mean": 0.154
+      },
+      "c16": {
+        "ops": 120765,
+        "errors": 0,
+        "ops_per_sec": 24150.4,
+        "latency_ms_p50": 0.65,
+        "latency_ms_p99": 0.829,
+        "latency_ms_mean": 0.662
+      },
+      "c64": {
+        "ops": 129238,
+        "errors": 0,
+        "ops_per_sec": 25835.7,
+        "latency_ms_p50": 2.422,
+        "latency_ms_p99": 3.026,
+        "latency_ms_mean": 2.471
+      }
+    },
+    "3_nodes": {
+      "c1": {
+        "ops": 15566,
+        "errors": 0,
+        "ops_per_sec": 3113.1,
+        "latency_ms_p50": 0.319,
+        "latency_ms_p99": 0.366,
+        "latency_ms_mean": 0.321
+      },
+      "c16": {
+        "ops": 67306,
+        "errors": 0,
+        "ops_per_sec": 13458.8,
+        "latency_ms_p50": 1.167,
+        "latency_ms_p99": 1.588,
+        "latency_ms_mean": 1.187
+      },
+      "c64": {
+        "ops": 81598,
+        "errors": 0,
+        "ops_per_sec": 16310.9,
+        "latency_ms_p50": 3.861,
+        "latency_ms_p99": 5.172,
+        "latency_ms_mean": 3.905
+      }
+    },
+    "5_nodes": {
+      "c1": {
+        "ops": 13871,
+        "errors": 0,
+        "ops_per_sec": 2774.0,
+        "latency_ms_p50": 0.357,
+        "latency_ms_p99": 0.425,
+        "latency_ms_mean": 0.36
+      },
+      "c16": {
+        "ops": 51650,
+        "errors": 0,
+        "ops_per_sec": 10328.8,
+        "latency_ms_p50": 1.537,
+        "latency_ms_p99": 2.075,
+        "latency_ms_mean": 1.547
+      },
+      "c64": {
+        "ops": 66535,
+        "errors": 0,
+        "ops_per_sec": 13297.8,
+        "latency_ms_p50": 4.761,
+        "latency_ms_p99": 6.083,
+        "latency_ms_mean": 4.783
+      }
+    }
+  },
+  "failover": {
+    "cluster_nodes": 3,
+    "trials": [
+      {
+        "killed": "n2",
+        "gap_ms": 303.1,
+        "kill_to_first_write_ms": 298.5
+      },
+      {
+        "killed": "n1",
+        "gap_ms": 343.4,
+        "kill_to_first_write_ms": 342.7
+      },
+      {
+        "killed": "n2",
+        "gap_ms": 186.7,
+        "kill_to_first_write_ms": 184.9
+      },
+      {
+        "killed": "n2",
+        "gap_ms": 255.4,
+        "kill_to_first_write_ms": 254.9
+      },
+      {
+        "killed": "n1",
+        "gap_ms": 232.3,
+        "kill_to_first_write_ms": 230.7
+      }
+    ],
+    "gap_ms_median": 255.4,
+    "gap_ms_min": 186.7,
+    "gap_ms_max": 343.4
+  }
+}
