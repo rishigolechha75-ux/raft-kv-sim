@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "raftkv"
+version = "0.1.0"
+description = "Raft-replicated key-value store with deterministic simulation testing and a linearizability checker"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Rishi Golechha" }]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.3", "matplotlib==3.9.2"]
+
+[project.scripts]
+raftkv = "raftkv.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
